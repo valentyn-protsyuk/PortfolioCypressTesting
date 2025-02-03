@@ -41,7 +41,7 @@ describe("Header testing", () => {
     HeaderPage.hoverViolet(linksSelector);
   });
 
-  it.only("Skills btn hover color change", () => {
+  it("Skills btn hover color change", () => {
     // skills btn selector
     let skillsSelector = '.header__link[href*="skills"]';
     //initial color
@@ -49,6 +49,16 @@ describe("Header testing", () => {
       .should("have.css", "color", "rgb(71, 85, 105)");
     // on hover text should be violet
     HeaderPage.hoverViolet(skillsSelector);
+  });
+
+  it.only("Projects btn hover color change", () => {
+    // projects btn selector
+    let projectsSelector = '.header__link[href*="projects"]';
+    //initial color
+    cy.get(projectsSelector)
+      .should("have.css", "color", "rgb(71, 85, 105)");
+    // on hover text should be violet
+    HeaderPage.hoverViolet(projectsSelector);
   });
 
 });
