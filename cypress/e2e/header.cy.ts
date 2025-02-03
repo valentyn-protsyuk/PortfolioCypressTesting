@@ -31,4 +31,14 @@ describe("Header testing", () => {
     HeaderPage.hoverViolet(profileSelector);
   });
 
+  it.only("Links btn hover color change", () => {
+    // links btn selector
+    let linksSelector = '.header__link[href*="links"]';
+    //initial color
+    cy.get(linksSelector)
+      .should("have.css", "color", "rgb(71, 85, 105)");
+    // on hover text should be violet
+    HeaderPage.hoverViolet(linksSelector);
+  });
+
 });
