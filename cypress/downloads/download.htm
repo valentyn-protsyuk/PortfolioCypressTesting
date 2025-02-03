@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://api.fontshare.com/v2/css?f[]=archivo@400,500,600,700,900&display=swap" rel="stylesheet">
+    <title>VPortfolio</title>
+  </head>
+  <body>
+    <script type="module" src="./src/main.js"></script>
+    <header class="header container">
+      <nav>
+        <!-- HEADER SECTION HERE!!! -->
+        <ul class="header__menu">
+          <li><a class="header__link" href="#my-profile">Profile</a></li>
+          <li><a class="header__link" href="#my-links">Links</a></li>
+          <li><a class="header__link" href="#my-skills">Skills</a></li>
+          <li><a class="header__link" href="#my-projects">Projects</a></li>
+          <li class="header__line"></li>
+          <li>
+            <button id="theme-toggle" class="header__sun">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+              </svg>              
+            </button>
+          </li>
+        </ul>
+        <button class="header__bars">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+          </svg>          
+        </button>
+      </nav>
+    </header>
+
+    <!-- MOBILE MENU HERE!!! -->
+    <div class="mobile-nav">
+      <nav>
+        <ul class="mobile-nav__menu">
+          <li>
+            <a class="mobile-nav__link" href="#my-profile">Profile</a>
+          </li>
+          <li>
+            <a class="mobile-nav__link" href="#my-links">Links</a>
+          </li>
+          <li>
+            <a class="mobile-nav__link" href="#my-skills">Skills</a>
+          </li>
+          <li>
+            <a class="mobile-nav__link" href="#my-projects">Projects</a>
+          </li>
+          <li class="mobile-nav__link-line"></li>
+          <li>
+            <button id="theme-toggle" class="mobile-nav__sun">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+              </svg>              
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+
+      <!-- PROFILE SECTION HERE!!! -->
+      <a id="my-profile"></a>
+      <section class="profile container">
+        <img loading="lazy" class="profile__img" src="./imgs/pfp.jpg" alt="My Photo">
+        <h1 class="profile__maintitle">QA Tester</h1>
+        <h2 class="profile__minititle">About Me</h2>
+        <p class="profile__description">Passionate <strong>Quality Assurance Engineer</strong> with a strong background in software testing and quality assurance (<strong>Manual</strong> & <strong>Automation</strong>). Experienced with testing tools like Cypress, Playwright, GraphQL, and Postman. My expertise lies in testing web applications and REST APIs.</p>
+        <h2 class="profile__minititle">Education</h2>
+        <p class="profile__description">I graduated with a <strong>Bachelor of Computer Science</strong> (Cum Laude) degree from <strong>California State University San Marcos</strong> in 2024. Throughout my studies, I built a strong foundation in computer science principles and developed key problem-solving and analytical skills.</p>
+        <h2 class="profile__minititle">Courses Taken</h2>
+        <p class="profile__description">Software Engineering - Networking -
+          Computer Security - Programming Languages - Theory of Computing -
+          Fundamentals of Database Systems - Data Structures and Algorithms
+         </p>
+      
+      </section>
+
+      <!-- LINKS SECTION HERE!!! -->
+      <a id="my-links"></a>
+      <section class="contact container section">
+        <h2 class="contact__title">My links</h2>
+        <h3 class="contact__links-title">Ways to contact me</h3>
+        <ul class="contact__links">
+          <li>
+            <a class="contact__link" href="https://www.linkedin.com/in/valentyn-protsyuk/">Go to my LinkedIn</a>
+          </li>
+          <li>
+            <a class="contact__link" href="mailto:valentyn.protsyuk@yahoo.com" target="_blank" rel="noopener noreferrer">Send me an email</a>
+          </li>
+        </ul>
+        <h3 class="contact__links-title">Other</h3>
+        <ul class="contact__links">
+          <li>
+            <a class="contact__link" href="https://github.com/valentyn-protsyuk">Checkout my Github</a>
+          </li>
+          <li>
+            <a class="contact__link" href="https://docs.google.com/document/d/1RPsT-rBYSbn3MPvw1z5EogvEGY6PXEydN-taSgRib0o/edit?usp=sharing">Checkout my Resume</a>
+          </li>
+        </ul>
+      </section>
+      
+      <!-- SKILLS SECTION HERE!!! -->
+      <a id="my-skills"></a>
+      <section class="skills container section">
+        <div class="skills__text">
+          <h2 class="skills__title">Skills</h2>
+          <hr class="skills__hr"/>
+          <h3 class="skills__subtitle">Hard Skills</h3>
+          <div class="skills__info-container">
+            <div>
+              <h3 class="skills__label">Testing</h3>
+              <ul class="skills__hs-ul">
+                <li class="skills__hs-li">Cypress</li>
+                <li class="skills__hs-li">Playwright</li>
+                <li class="skills__hs-li">GraphQL</li>
+                <li class="skills__hs-li">Postman</li>
+                <li class="skills__hs-li">Selenium</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="skills__label">Programming</h3>
+              <ul class="skills__hs-ul">
+                <li class="skills__hs-li">JS</li>
+                <li class="skills__hs-li">CSS</li>
+                <li class="skills__hs-li">HTML</li>
+                <li class="skills__hs-li">Python</li>
+                <li class="skills__hs-li">Java</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="skills__label">Other</h3>
+              <ul class="skills__hs-ul">
+                <li class="skills__hs-li">Jira</li>
+                <li class="skills__hs-li">Confluence</li>
+                <li class="skills__hs-li">Slack</li>
+                <li class="skills__hs-li">Excel</li>
+                <li class="skills__hs-li">Docs</li>
+              </ul>
+            </div>
+          </div>
+          <hr class="skills__hr"/>
+          <h3 class="skills__subtitle">Soft Skills</h3>
+          <div class="skills__two-ul">
+            <ul class="skills__ul">
+              <li class="skills__li">Attention to Detail</li>
+              <li class="skills__li">Problem Solving</li>
+              <li class="skills__li">Time-Management</li>
+              <li class="skills__li">Intuition</li>
+            </ul>
+
+            <ul class="skills__ul">
+              <li class="skills__li">Quick Learner</li>
+              <li class="skills__li">Adaptability</li>
+              <li class="skills__li">Communication</li>
+              <li class="skills__li">Team Player</li>
+            </ul>
+          </div>
+          <hr class="skills__hr"/>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION HERE!!! -->
+      <a id="my-projects"></a>
+      <section class="projects container section">
+        <h2 class="projects__subtitle">My Projects</h2>
+        
+        <h3 class="projects__title">Portfolio Website Testing</h3>
+
+        <div class="projects__info">
+          <div class="projects__iframe-wrapper">
+            <iframe loading="lazy" class="projects__iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+          </div>
+        
+          <div class="projects__text">
+  
+            <h3 class="projects__label">Description</h3>
+            <p class="projects__description">For this project, I applied my QA knowledge to ensure functionality and performance of my portfolio website. This included testing features like navigation and links, cross-browser compatibility, and responsive design across devices and screen sizes for a smooth, user-friendly experience.</p>
+            
+  
+
+            <div class="projects__info-container">
+              <div>
+                <h3 class="projects__label">Tech Used</h3>
+                <ul class="projects__tech-stack">
+                  <li class="projects__li">JS</li>
+                  <li class="projects__li">CSS</li>
+                  <li class="projects__li">HTML</li>
+                  <li class="projects__li">Cypress</li>
+                  <li class="projects__li">Playwright</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="projects__label">Table of Contents</h3>
+                <ul class="projects__tech-stack">
+                  <li>
+                    <a class="projects__link" href="https://github.com/valentyn-protsyuk/PortfolioProject/tree/main/Portfolio">Portfolio Repository</a>
+                  </li>
+                  <li>
+                    <a class="projects__link" href="">Cypress Testing Repository</a>
+                  </li>
+                  <li>
+                    <a class="projects__link" href="">Playwright Testing Repository</a>
+                  </li>
+                  <li>
+                    <a class="projects__link" href="https://docs.google.com/spreadsheets/d/1tSxK_vzj_p6tq-tnfjbTgpvJfNXGWDYcxx3CD5u-9Fw/edit?usp=sharing">Manual Testing Docs</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="projects__label">Date</h3>
+                <p>January 25 - Current</p>
+              </div>
+            </div>
+          </div>
+          <hr class="skills__hr"/>
+        </div>
+
+        <h3 class="projects__title">Russian Roulette Game testing</h3>
+
+        <div class="projects__info">
+          <div class="projects__iframe-wrapper">
+            <iframe loading="lazy" class="projects__iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+          </div>
+        
+          <div class="projects__text">
+  
+            <h3 class="projects__label">Description</h3>
+            <p class="projects__description">For this project, I tested a Russian Roulette game from my game programming class. My testing approach included verifying the functionality of in-game assets such as GIFs, audio files, links, and buttons. I performed end-to-end testing to ensure the user could complete the full game loop. This testing helped ensure a smooth and immersive user experience.</p>
+            
+            <div class="projects__info-container">
+              <div>
+                <h3 class="projects__label">Tech Used</h3>
+                <ul class="projects__tech-stack">
+                  <li class="projects__li">JS</li>
+                  <li class="projects__li">CSS</li>
+                  <li class="projects__li">HTML</li>
+                  <li class="projects__li">Cypress</li>
+                  <li class="projects__li">Playwright</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="projects__label">Table of Contents</h3>
+                <ul class="projects__tech-stack">
+                  <li>
+                    <a class="projects__link" href="">Russian Roulette Repository</a>
+                  </li>
+                  <li>
+                    <a class="projects__link" href="">Cypress Testing Repository</a>
+                  </li>
+                  <li>
+                    <a class="projects__link" href="">Playwright Testing Repository</a>
+                  </li>
+                  <li>
+                    <a class="projects__link" href="https://docs.google.com/spreadsheets/d/1YqvJMO0qNF1fSIWDR3aXC3Tf0FDpUHesGxKpa8d8ErY/edit?usp=sharing">Manual Testing Docs</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="projects__label">Date</h3>
+                <p>January 25 - Current</p>
+              </div>
+            </div>
+          </div>
+          <hr class="skills__hr"/>
+        </div>
+      </section>
+    </main>
+    <footer class="footer container section">
+      <h3 class="footer__title">
+        ~ VALENTYN PROTSYUK PORTFOLIO ~
+      </h3>
+    </footer>
+  </body>
+</html>
