@@ -1,9 +1,19 @@
-describe('Header testing', () => {
-  it('Verify Profile btn color change', () => {
-    cy.visit('/')
-    cy.get('.header__link[href="#my-profile"]').contains('Profile')
-    cy.wait(1000);
-    cy.get('.header__link[href="#my-profile"]').screenshot('hovered-state');
-    cy.get('.header__link[href="#my-profile"]').should('not.have.css', 'color', 'rgb(71, 85, 105)');
-  })
-})
+import {HeaderPage} from "../pages/Header"
+
+describe("Header testing", () => {
+  beforeEach(() => {
+    cy.visit("/");
+    cy.reload();
+  });
+
+  it("Profile btn hover color change", () => {
+    // profile btn selector
+    let profileSelector = '.header__link[href*="profile"]';
+    //initial color
+    cy.get(profileSelector)
+      .should("have.css", "color", "rgb(71, 85, 105)");
+    // on hover text should be violet
+    HeaderPage.hoverViolet(profileSelector);
+  });
+
+});
