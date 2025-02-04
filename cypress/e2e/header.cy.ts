@@ -73,11 +73,22 @@ describe("Header testing", () => {
     HeaderPage.inViewport(profileSelector, imgSelector);
   });
 
-  it.only("Links btn navigation on click", () => {
+  it("Links btn navigation on click", () => {
     // links btn selector
     let btnSelector = '.header__link[href*="links"]';
     let titleSelector = '.contact .contact__title';
     //test navigation
     HeaderPage.inViewport(btnSelector, titleSelector);
   });
+
+  it.only("Skills btn navigation on click", () => {
+    // skills btn selector
+    let btnSelector = '.header__link[href*="skills"]';
+    //top element of the section
+    let titleSelector = '.skills .skills__title';
+    //test navigation
+    HeaderPage.inViewport(btnSelector, titleSelector);
+  });
+
+  
 });
