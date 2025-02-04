@@ -65,11 +65,19 @@ describe("Header testing", () => {
   });
 
   //BTN CLICK
-  it.only("Profile btn navigation on click", () => {
+  it("Profile btn navigation on click", () => {
     // profile btn selector
     let profileSelector = '.header__link[href*="profile"]';
     let imgSelector = '.profile__img[alt="My Photo"]';
     //test navigation
     HeaderPage.inViewport(profileSelector, imgSelector);
+  });
+
+  it.only("Links btn navigation on click", () => {
+    // links btn selector
+    let btnSelector = '.header__link[href*="links"]';
+    let titleSelector = '.contact .contact__title';
+    //test navigation
+    HeaderPage.inViewport(btnSelector, titleSelector);
   });
 });
