@@ -66,18 +66,10 @@ describe("Header testing", () => {
 
   //BTN CLICK
   it.only("Profile btn navigation on click", () => {
-    cy.viewport(1024, 768);
     // profile btn selector
     let profileSelector = '.header__link[href*="profile"]';
     let imgSelector = '.profile__img[alt="My Photo"]';
-    //scroll down
-    cy.scrollTo('bottom');
-    cy.wait(1000);
-    //click profile btn
-    cy.get(profileSelector).click();
-    //img should be in viewport
-    cy.wait(1000);
-    cy.isInViewport(imgSelector)
-      
+    //test navigation
+    HeaderPage.inViewport(profileSelector, imgSelector);
   });
 });

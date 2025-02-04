@@ -13,13 +13,15 @@ class Header {
             });
     }
 
-    inViewport(selector:string){
-        cy.get(selector).then(($el) =>{
-            const box = $el[0].getBoundingClientRect();
-            cy.log(`box.top: ${box.top}`);
-            cy.log(`viewportHeight: ${window.innerHeight}`);
-            expect(box.top).to.be.within(0,600);
-        })
+    inViewport(btnSelector:string, topElSelector: string){
+        //scroll down
+        cy.scrollTo('bottom');
+        cy.wait(500);
+        //click navigation btn
+        cy.get(btnSelector).click();
+        //Top element should be in current viewport
+        cy.wait(500);
+        cy.isInViewport(topElSelector);
     }
 }
 
