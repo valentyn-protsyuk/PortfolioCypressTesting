@@ -25,13 +25,30 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      login(email: string, password: string): Chainable<void>
+    }
+  }
+}
+
+Cypress.Commands.add("isInViewport", (selector) => {
+    cy.window({ log: false }).then((win) => {
+      // get the current viewport of the application
+      const { innerHeight, innerWidth } = win
+      cy.log(JSON.stringify({ innerHeight, innerWidth }))
+  
+      cy.get(selector).should(($el) => {
+          const rect = $el[0].getBoundingClientRect()
+
+          if (rect.bottom > 0 && rect.top < innerHeight) {
+            // the element is outside the viewport vertically
+            return
+          }
+          throw new Error(`Element: ${selector} with top coordinate: ${rect.top} is not in current viewport`)
+      })
+    })
+  
+    cy.log(`${selector} is visible in viewport`)
+  })

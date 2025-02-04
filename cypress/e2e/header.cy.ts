@@ -1,11 +1,13 @@
 import {HeaderPage} from "../pages/Header"
 
 describe("Header testing", () => {
+
   beforeEach(() => {
     cy.visit("/");
     cy.reload();
   });
 
+  //ELEMENT ORDER
   it("Header elements order", () => {
     // 1 profile btn
     cy.get('.header__menu li:nth-child(1)').contains('Profile');
@@ -21,6 +23,7 @@ describe("Header testing", () => {
     cy.get('.header__menu li:nth-child(6)').find('button.header__sun').should('exist');
   });
 
+  //BTN HOVER
   it("Profile btn hover color change", () => {
     // profile btn selector
     let profileSelector = '.header__link[href*="profile"]';
@@ -51,7 +54,7 @@ describe("Header testing", () => {
     HeaderPage.hoverViolet(skillsSelector);
   });
 
-  it.only("Projects btn hover color change", () => {
+  it("Projects btn hover color change", () => {
     // projects btn selector
     let projectsSelector = '.header__link[href*="projects"]';
     //initial color
@@ -61,4 +64,20 @@ describe("Header testing", () => {
     HeaderPage.hoverViolet(projectsSelector);
   });
 
+  //BTN CLICK
+  it.only("Profile btn navigation on click", () => {
+    cy.viewport(1024, 768);
+    // profile btn selector
+    let profileSelector = '.header__link[href*="profile"]';
+    let imgSelector = '.profile__img[alt="My Photo"]';
+    //scroll down
+    cy.scrollTo('bottom');
+    cy.wait(1000);
+    //click profile btn
+    cy.get(profileSelector).click();
+    //img should be in viewport
+    cy.wait(1000);
+    cy.isInViewport(imgSelector)
+      
+  });
 });
