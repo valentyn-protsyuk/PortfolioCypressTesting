@@ -81,7 +81,7 @@ describe("Header testing", () => {
     HeaderPage.inViewport(btnSelector, titleSelector);
   });
 
-  it.only("Skills btn navigation on click", () => {
+  it("Skills btn navigation on click", () => {
     // skills btn selector
     let btnSelector = '.header__link[href*="skills"]';
     //top element of the section
@@ -90,5 +90,13 @@ describe("Header testing", () => {
     HeaderPage.inViewport(btnSelector, titleSelector);
   });
 
-  
+  it.only("Projects btn navigation on click", () => {
+    // projects btn selector
+    let btnSelector = '.header__link[href*="projects"]';
+    //top element of the section
+    let titleSelector = '.projects .projects__subtitle';
+    //test navigation
+    HeaderPage.inViewport(btnSelector, titleSelector);
+  });
+
 });
