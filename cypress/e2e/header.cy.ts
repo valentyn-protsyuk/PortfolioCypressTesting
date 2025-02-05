@@ -112,7 +112,7 @@ describe("Header testing", () => {
     cy.clearLocalStorage();
   });
 
-  it.only("Light to dark mode color change", () => {
+  it("Light to dark mode color change", () => {
     //theme btn selector
     let btnSelector = '#theme-toggle.header__sun';
     //click theme btn
@@ -121,10 +121,28 @@ describe("Header testing", () => {
     cy.get('body').should('have.css','background-color', 'rgb(241, 245, 249)');
     //click theme btn
     cy.get(btnSelector).click();
-    //light mode background (light)
+    //light mode background (dark)
     cy.get('body').should('have.css','background-color', 'rgb(7, 10, 19)');
     //clear data for next test
     cy.clearLocalStorage();
   });
 
+  it.only("Light mode after refresh", () => {
+    //theme btn selector
+    let btnSelector = '#theme-toggle.header__sun';
+    //click theme btn
+    cy.get(btnSelector).click();
+    //light mode background (light)
+    cy.get('body').should('have.css','background-color', 'rgb(241, 245, 249)');
+    //click theme btn
+    cy.reload();
+    //still in light mode
+    cy.get('body').should('have.css','background-color', 'rgb(241, 245, 249)');
+    cy.window().then((page)=>{
+      const themeValue = page.localStorage.getItem('theme');
+      expect(themeValue).to.equal('light-mode');
+    })
+    //clear data for next test
+    cy.clearLocalStorage();
+  });
 });
