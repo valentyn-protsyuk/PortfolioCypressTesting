@@ -99,7 +99,7 @@ describe("Header testing", () => {
     HeaderPage.inViewport(btnSelector, titleSelector);
   });
 
-  it.only("Dark to light mode color change", () => {
+  it("Dark to light mode color change", () => {
     //theme btn selector
     let btnSelector = '#theme-toggle.header__sun';
     //default background color (dark)
@@ -112,5 +112,19 @@ describe("Header testing", () => {
     cy.clearLocalStorage();
   });
 
-  
+  it.only("Light to dark mode color change", () => {
+    //theme btn selector
+    let btnSelector = '#theme-toggle.header__sun';
+    //click theme btn
+    cy.get(btnSelector).click();
+    //light mode background (light)
+    cy.get('body').should('have.css','background-color', 'rgb(241, 245, 249)');
+    //click theme btn
+    cy.get(btnSelector).click();
+    //light mode background (light)
+    cy.get('body').should('have.css','background-color', 'rgb(7, 10, 19)');
+    //clear data for next test
+    cy.clearLocalStorage();
+  });
+
 });
