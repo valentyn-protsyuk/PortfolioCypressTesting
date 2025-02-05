@@ -90,7 +90,7 @@ describe("Header testing", () => {
     HeaderPage.inViewport(btnSelector, titleSelector);
   });
 
-  it.only("Projects btn navigation on click", () => {
+  it("Projects btn navigation on click", () => {
     // projects btn selector
     let btnSelector = '.header__link[href*="projects"]';
     //top element of the section
@@ -99,4 +99,18 @@ describe("Header testing", () => {
     HeaderPage.inViewport(btnSelector, titleSelector);
   });
 
+  it.only("Dark to light mode color change", () => {
+    //theme btn selector
+    let btnSelector = '#theme-toggle.header__sun';
+    //default background color (dark)
+    cy.get('body').should('have.css','background-color', 'rgb(7, 10, 19)');
+    //click theme btn
+    cy.get(btnSelector).click();
+    //updated background (light)
+    cy.get('body').should('have.css','background-color', 'rgb(241, 245, 249)');
+    //clear data for next test
+    cy.clearLocalStorage();
+  });
+
+  
 });
