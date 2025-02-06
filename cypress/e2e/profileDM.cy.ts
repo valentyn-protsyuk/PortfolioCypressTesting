@@ -86,7 +86,7 @@ describe('PROFILE TESTING in DARK MODE', () => {
         });
     });
 
-    describe.only('PROFILE EDUCATION PARAGRAPH TESTING', () => {
+    describe('PROFILE EDUCATION PARAGRAPH TESTING', () => {
         const firstHighLight = '.profile > :nth-child(6)  > :nth-child(1)';
         const secondHighLight = '.profile > :nth-child(6)  > :nth-child(2)';
         
@@ -104,5 +104,20 @@ describe('PROFILE TESTING in DARK MODE', () => {
             cy.get(secondHighLight).should('have.css', 'color', 'rgb(144, 43, 245)');
         });
     });
+
+
+
+
+
+    describe('PROFILE COURSES SUBTITLE TESTING', () => {
+        it('Verify subtitle text', () => {
+            cy.get(ProfilePage.coursesTitle).should('have.text', 'Courses Taken');
+        });
+
+        it('Verify subtitle text color', () => {
+            cy.get(ProfilePage.coursesTitle).should('have.css', 'color', 'rgb(71, 85, 105)');
+        });
+    });
+
 
 });
