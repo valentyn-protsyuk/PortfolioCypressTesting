@@ -13,7 +13,11 @@ describe('PROFILE TESTING', () => {
         cy.get(ProfilePage.profileContainer).should('have.css','flex-direction', 'column');
     });
 
-    
+    it.only('Verify profile container content is centered', () => {
+        cy.get(ProfilePage.profileContainer).should('have.css','text-align', 'center');
+        cy.get(ProfilePage.profileContainer).should('have.css','justify-content', 'center');
+        cy.get(ProfilePage.profileContainer).should('have.css','align-items', 'center');
+    });
 
     //IMG TESTING
     it('Verify Img Visible', () => {
