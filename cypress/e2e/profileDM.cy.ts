@@ -105,10 +105,6 @@ describe('PROFILE TESTING in DARK MODE', () => {
         });
     });
 
-
-
-
-
     describe('PROFILE COURSES SUBTITLE TESTING', () => {
         it('Verify subtitle text', () => {
             cy.get(ProfilePage.coursesTitle).should('have.text', 'Courses Taken');
@@ -119,5 +115,14 @@ describe('PROFILE TESTING in DARK MODE', () => {
         });
     });
 
-
+    
+    describe('PROFILE COURSES PARAGRAPH TESTING', () => {
+        it('Verify paragraph text color', () => {
+            cy.get(ProfilePage.coursesParagraph).should('have.css', 'color', 'rgb(71, 85, 105)');
+        });
+        
+        it('Verify no highlights', () => {
+            cy.get(ProfilePage.coursesParagraph).should('not.have.descendants', 'strong');
+        });
+    });
 });
