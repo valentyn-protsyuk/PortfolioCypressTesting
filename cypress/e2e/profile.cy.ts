@@ -9,7 +9,7 @@ describe('PROFILE TESTING', () => {
 
     //IMG TESTING
     it('Verify Img Visible', () => {
-        
+        cy.get(ProfilePage.img).should('be.visible');
     });
 
     it('Verify Img centered', () => {
