@@ -44,14 +44,23 @@ describe('PROFILE TESTING in DARK MODE', () => {
         });
     });
 
-    describe.only('PROFILE ABOUT SUBTITLE TESTING', () => {
+    describe('PROFILE ABOUT SUBTITLE TESTING', () => {
         it('Verify subtitle text', () => {
             cy.get(ProfilePage.aboutTitle).should('have.text', 'About Me');
         });
 
-        it('Verify main title text color', () => {
+        it('Verify subtitle text color', () => {
             cy.get(ProfilePage.aboutTitle).should('have.css', 'color', 'rgb(71, 85, 105)');
         });
     });
 
+    describe.only('PROFILE ABOUT PARAGRAPH TESTING', () => {
+        const firstHighLight = '.profile > :nth-child(4)  > :nth-child(1)';
+        const secondHighLight = '.profile > :nth-child(4)  > :nth-child(2)';
+        const thirdHighLight = '.profile > :nth-child(4)  > :nth-child(3)';
+        
+        it('Verify paragraph text color', () => {
+            cy.get(ProfilePage.aboutParagraph).should('have.css', 'color', 'rgb(71, 85, 105)');
+        });
+    });
 });
