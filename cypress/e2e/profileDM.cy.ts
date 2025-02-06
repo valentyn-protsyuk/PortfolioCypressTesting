@@ -20,7 +20,7 @@ describe('PROFILE TESTING', () => {
         });
     });
 
-    describe('IMG TESTING', () => {
+    describe('PROFILE IMG TESTING', () => {
         it('Verify Img Visible', () => {
             cy.get(ProfilePage.img).should('be.visible');
         });
@@ -30,7 +30,7 @@ describe('PROFILE TESTING', () => {
         });
     });
 
-    describe('MAIN TITLE TESTING', () => {
+    describe('PROFILE MAIN TITLE TESTING', () => {
         it('Verify main title text', () => {
             cy.get(ProfilePage.mainTitle).invoke('text').should('match', /qa tester/i);
         });
@@ -44,5 +44,11 @@ describe('PROFILE TESTING', () => {
         });
     });
 
+    describe.only('PROFILE ABOUT SUBTITLE TESTING', () => {
+        it('Verify subtitle text', () => {
+            cy.get(ProfilePage.aboutTitle).should('have.text', 'About Me');
+        });
+
+    });
 
 });
