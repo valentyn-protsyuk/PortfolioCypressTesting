@@ -1,6 +1,6 @@
 import {ProfilePage} from "../pages/Profile"
 
-describe('PROFILE TESTING', () => {
+describe('PROFILE TESTING in DARK MODE', () => {
 
     beforeEach(() => {
         cy.visit('/');
