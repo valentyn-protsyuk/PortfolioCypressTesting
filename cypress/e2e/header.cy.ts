@@ -127,7 +127,7 @@ describe("Header testing", () => {
     cy.clearLocalStorage();
   });
 
-  it.only("Light mode after refresh", () => {
+  it("Light mode after refresh", () => {
     //theme btn selector
     let btnSelector = '#theme-toggle.header__sun';
     //click theme btn
