@@ -34,7 +34,10 @@ describe('PROFILE TESTING', () => {
         it('Verify main title text', () => {
             cy.get(ProfilePage.mainTitle).invoke('text').should('match', /qa tester/i);
         });
-    
+
+        it('Verify main title text is uppercase', () => {
+            cy.get(ProfilePage.mainTitle).should('have.css', 'text-transform', 'uppercase');
+        });
     });
 
 
