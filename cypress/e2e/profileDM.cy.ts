@@ -76,19 +76,32 @@ describe('PROFILE TESTING in DARK MODE', () => {
         });
     });
 
-
-
-
-
-
-
-    describe.only('PROFILE Education SUBTITLE TESTING', () => {
+    describe('PROFILE EDUCATION SUBTITLE TESTING', () => {
         it('Verify subtitle text', () => {
             cy.get(ProfilePage.educationTitle).should('have.text', 'Education');
         });
 
         it('Verify subtitle text color', () => {
             cy.get(ProfilePage.educationTitle).should('have.css', 'color', 'rgb(71, 85, 105)');
+        });
+    });
+
+    describe.only('PROFILE EDUCATION PARAGRAPH TESTING', () => {
+        const firstHighLight = '.profile > :nth-child(6)  > :nth-child(1)';
+        const secondHighLight = '.profile > :nth-child(6)  > :nth-child(2)';
+        
+        it('Verify paragraph text color', () => {
+            cy.get(ProfilePage.educationParagraph).should('have.css', 'color', 'rgb(71, 85, 105)');
+        });
+        
+        it('Verify paragraph highlighted text', () => {
+            cy.get(firstHighLight).should('have.text', 'Bachelor of Computer Science');
+            cy.get(secondHighLight).should('have.text', 'California State University San Marcos');
+        });
+
+        it('Verify paragraph highlighted text color', () => {
+            cy.get(firstHighLight).should('have.css', 'color', 'rgb(144, 43, 245)');
+            cy.get(secondHighLight).should('have.css', 'color', 'rgb(144, 43, 245)');
         });
     });
 
