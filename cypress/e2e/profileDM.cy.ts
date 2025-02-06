@@ -49,6 +49,9 @@ describe('PROFILE TESTING', () => {
             cy.get(ProfilePage.aboutTitle).should('have.text', 'About Me');
         });
 
+        it('Verify main title text color', () => {
+            cy.get(ProfilePage.aboutTitle).should('have.css', 'color', 'rgb(71, 85, 105)');
+        });
     });
 
 });
