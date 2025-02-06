@@ -62,5 +62,11 @@ describe('PROFILE TESTING in DARK MODE', () => {
         it('Verify paragraph text color', () => {
             cy.get(ProfilePage.aboutParagraph).should('have.css', 'color', 'rgb(71, 85, 105)');
         });
+        
+        it('Verify paragraph highlighted text', () => {
+            cy.get(firstHighLight).should('have.text', 'Quality Assurance Engineer');
+            cy.get(secondHighLight).should('have.text', 'Manual');
+            cy.get(thirdHighLight).should('have.text', 'Automation');
+        });
     });
 });
