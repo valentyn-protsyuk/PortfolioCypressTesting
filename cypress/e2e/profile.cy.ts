@@ -16,8 +16,8 @@ describe('PROFILE TESTING', () => {
         
     });
 
-    it('Verify Img round corner', () => {
-        
+    it.only('Verify Img round corner', () => {
+        cy.get(ProfilePage.img).should('have.css','border-radius', '50%');
     });
 
     //MAIN TITLE TESTING
