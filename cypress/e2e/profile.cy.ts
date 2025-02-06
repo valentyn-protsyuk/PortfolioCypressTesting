@@ -7,16 +7,20 @@ describe('PROFILE TESTING', () => {
         cy.reload();
     });
 
+    //PROFILE CONTAINER Testing
+    it('Verify profile container has vertical layout', () => {
+        cy.get(ProfilePage.profileContainer).should('have.css','display', 'flex');
+        cy.get(ProfilePage.profileContainer).should('have.css','flex-direction', 'column');
+    });
+
+    
+
     //IMG TESTING
     it('Verify Img Visible', () => {
         cy.get(ProfilePage.img).should('be.visible');
     });
 
-    it('Verify Img centered', () => {
-        
-    });
-
-    it.only('Verify Img round corner', () => {
+    it('Verify Img round corner', () => {
         cy.get(ProfilePage.img).should('have.css','border-radius', '50%');
     });
 

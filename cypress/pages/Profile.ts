@@ -1,6 +1,7 @@
 import "cypress-real-events/support";
 
 class Profile {
+    profileContainer: string = '.profile.container';
     img: string = '.profile__img[alt*="Photo"]';
     mainTitle: string = 'h1.profile__maintitle';
     aboutTitle: string = '.profile > :nth-child(3)';
