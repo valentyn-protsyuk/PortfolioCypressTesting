@@ -38,6 +38,10 @@ describe('PROFILE TESTING', () => {
         it('Verify main title text is uppercase', () => {
             cy.get(ProfilePage.mainTitle).should('have.css', 'text-transform', 'uppercase');
         });
+
+        it('Verify main title text color', () => {
+            cy.get(ProfilePage.mainTitle).should('have.css', 'color', 'rgb(148, 163, 184)');
+        });
     });
 
 
