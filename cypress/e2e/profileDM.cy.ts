@@ -68,5 +68,11 @@ describe('PROFILE TESTING in DARK MODE', () => {
             cy.get(secondHighLight).should('have.text', 'Manual');
             cy.get(thirdHighLight).should('have.text', 'Automation');
         });
+
+        it('Verify paragraph highlighted text color', () => {
+            cy.get(firstHighLight).should('have.css', 'color', 'rgb(144, 43, 245)');
+            cy.get(secondHighLight).should('have.css', 'color', 'rgb(144, 43, 245)');
+            cy.get(thirdHighLight).should('have.css', 'color', 'rgb(144, 43, 245)');
+        });
     });
 });
