@@ -71,7 +71,7 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
           });
       });
 
-      describe.only('Email BTN TESTS', () => {
+      describe('EMAIL BTN TESTS', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.emailLink).should('have.text', 'Send me an email');
         });
@@ -91,8 +91,6 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         });
       });
 
-
-
     describe('MY LINKS OTHER SUBTITLE TESTING', () => {
         it('Verify subtitle text', () => {
             cy.get(LinksPage.otherSubtitle).should('have.text', 'Other');
@@ -106,4 +104,10 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
             cy.get(LinksPage.otherSubtitle).should('have.css', 'text-transform', 'capitalize');
         });
     });
+
+    describe.only('GITHUB BTN TESTS', () => {
+        it('Verify btn text', () => {
+            cy.get(LinksPage.githubLink).should('have.text', 'Checkout my Github');
+        });
+      });
 });
