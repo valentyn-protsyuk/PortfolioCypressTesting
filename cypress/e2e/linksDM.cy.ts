@@ -50,7 +50,7 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         });
     });
 
-      describe('LINKEDIN BTN TESTS', () => {
+    describe('LINKEDIN BTN TESTS', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.linkedinLink).should('have.text', 'Go to my LinkedIn');
         });
@@ -69,9 +69,9 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
             //test navigation
             LinksPage.verifyLink(LinksPage.linkedinLink, 'https://www.linkedin.com/in/valentyn-protsyuk/')
           });
-      });
+    });
 
-      describe('EMAIL BTN TESTS', () => {
+    describe('EMAIL BTN TESTS', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.emailLink).should('have.text', 'Send me an email');
         });
@@ -89,7 +89,7 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         it("verify btn link", () => {
             LinksPage.verifyLink(LinksPage.emailLink, 'mailto:valentyn.protsyuk@yahoo.com');
         });
-      });
+    });
 
     describe('MY LINKS OTHER SUBTITLE TESTING', () => {
         it('Verify subtitle text', () => {
@@ -105,7 +105,7 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         });
     });
 
-    describe.only('GITHUB BTN TESTS', () => {
+    describe('GITHUB BTN TESTS', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.githubLink).should('have.text', 'Checkout my Github');
         });
@@ -123,5 +123,11 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         it("verify btn href", () => {
             LinksPage.verifyLink(LinksPage.githubLink, 'https://github.com/valentyn-protsyuk');
         });
-      });
+    });
+
+    describe('RESUME BTN TESTS', () => {
+        it('Verify btn text', () => {
+            cy.get(LinksPage.resumeLink).should('have.text', 'Checkout my Resume');
+        });
+    });
 });
