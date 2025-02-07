@@ -1,4 +1,3 @@
-import {LinksPagePage} from "../pages/LinksPage"
 import { LinksPage } from "../pages/Links";
 
 describe('LINKS SECTION TESTING in DARK MODE', () => {
@@ -21,7 +20,7 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         });
     });
 
-    describe.only('PROFILE MAIN TITLE TESTING', () => {
+    describe('MY LINKS MAIN TITLE TESTING', () => {
         it('Verify main title text', () => {
             cy.get(LinksPage.mainTitle).invoke('text').should('match', /my links/i);
         });
@@ -32,6 +31,20 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
 
         it('Verify main title text color', () => {
             cy.get(LinksPage.mainTitle).should('have.css', 'color', 'rgb(241, 245, 249)');
+        });
+    });
+
+    describe.only('MY LINKS CONTACT SUBTITLE TESTING', () => {
+        it('Verify subtitle text', () => {
+            cy.get(LinksPage.contactSubtitle).should('have.text', 'Ways to contact me');
+        });
+
+        it('Verify subtitle text color', () => {
+            cy.get(LinksPage.contactSubtitle).should('have.css', 'color', 'rgb(148, 163, 184)');
+        });
+
+        it('Verify subtitle text capitalized', () => {
+            cy.get(LinksPage.contactSubtitle).should('have.css', 'text-transform', 'capitalize');
         });
     });
 });
