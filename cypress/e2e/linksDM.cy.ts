@@ -129,5 +129,9 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.resumeLink).should('have.text', 'Checkout my Resume');
         });
+        
+        it('Verify btn initial color', () => {
+            cy.get(LinksPage.resumeLink).should('have.css', 'color', 'rgba(225, 29, 79, 0.7)');
+        });
     });
 });
