@@ -109,5 +109,9 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.githubLink).should('have.text', 'Checkout my Github');
         });
+        
+        it('Verify btn initial color', () => {
+            cy.get(LinksPage.githubLink).should('have.css', 'color', 'rgba(225, 29, 79, 0.7)');
+        });
       });
 });
