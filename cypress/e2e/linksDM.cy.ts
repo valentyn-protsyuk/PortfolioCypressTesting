@@ -1,5 +1,4 @@
 import { LinksPage } from "../pages/Links";
-import { HeaderPage } from "../pages/Header";
 import "cypress-real-events/support";
 
 describe('LINKS SECTION TESTING in DARK MODE', () => {
@@ -142,7 +141,7 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
             // on hover text should be violet
             LinksPage.hoverViolet(LinksPage.resumeLink);
         });
-        
+
         it("verify btn href", () => {
             LinksPage.verifyLink(LinksPage.resumeLink, 'https://docs.google.com/document/d/1RPsT-rBYSbn3MPvw1z5EogvEGY6PXEydN-taSgRib0o/edit?usp=sharing');
         });
