@@ -120,6 +120,8 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
             // on hover text should be violet
             LinksPage.hoverViolet(LinksPage.githubLink);
         });
-        
+        it("verify btn href", () => {
+            LinksPage.verifyLink(LinksPage.githubLink, 'https://github.com/valentyn-protsyuk');
+        });
       });
 });
