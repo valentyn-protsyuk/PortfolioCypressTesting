@@ -2,8 +2,8 @@ import "cypress-real-events/support";
 
 class Links {
     linksContainer: string = '.contact.container';
-    linksMainTitle: string = '.contact .contact__title';
-    linksSubTitles: string = '.contact .contact__links-title';
+    mainTitle: string = '.contact .contact__title';
+    subTitles: string = '.contact .contact__links-title';
     allLinks: string = '.contact .contact__link';
 
     
