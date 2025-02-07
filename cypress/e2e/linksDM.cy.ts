@@ -50,7 +50,7 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         });
     });
 
-      describe.only('LINKEDIN BTN TESTS', () => {
+      describe('LINKEDIN BTN TESTS', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.linkedinLink).should('have.text', 'Go to my LinkedIn');
         });
@@ -69,6 +69,12 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
             //test navigation
             LinksPage.verifyLink(LinksPage.linkedinLink, 'https://www.linkedin.com/in/valentyn-protsyuk/')
           });
+      });
+
+      describe.only('Email BTN TESTS', () => {
+        it('Verify btn text', () => {
+            cy.get(LinksPage.emailLink).should('have.text', 'Send me an email');
+        });
       });
 
 
