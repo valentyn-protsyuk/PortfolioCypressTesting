@@ -115,7 +115,6 @@ describe('PROFILE TESTING in DARK MODE', () => {
         });
     });
 
-    
     describe('PROFILE COURSES PARAGRAPH TESTING', () => {
         it('Verify paragraph text color', () => {
             cy.get(ProfilePage.coursesParagraph).should('have.css', 'color', 'rgb(71, 85, 105)');
