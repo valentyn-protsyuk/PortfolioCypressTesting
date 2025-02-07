@@ -1,4 +1,6 @@
 import { LinksPage } from "../pages/Links";
+import { HeaderPage } from "../pages/Header";
+import "cypress-real-events/support";
 
 describe('LINKS SECTION TESTING in DARK MODE', () => {
 
@@ -48,11 +50,16 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         });
     });
 
+      describe.only('LINKEDIN BTN TESTS', () => {
+        it('Verify btn text', () => {
+            cy.get(LinksPage.linkedinLink).should('have.text', 'Go to my LinkedIn');
+        });
+
+      });
 
 
 
-
-    describe.only('MY LINKS OTHER SUBTITLE TESTING', () => {
+    describe('MY LINKS OTHER SUBTITLE TESTING', () => {
         it('Verify subtitle text', () => {
             cy.get(LinksPage.otherSubtitle).should('have.text', 'Other');
         });
