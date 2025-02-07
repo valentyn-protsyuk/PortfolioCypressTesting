@@ -54,7 +54,10 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.linkedinLink).should('have.text', 'Go to my LinkedIn');
         });
-
+        
+        it('Verify btn initial color', () => {
+            cy.get(LinksPage.linkedinLink).should('have.css', 'color', 'rgba(225, 29, 79, 0.7)');
+        });
       });
 
 
