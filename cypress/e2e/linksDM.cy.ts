@@ -65,6 +65,10 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
           // on hover text should be violet
           LinksPage.hoverViolet(LinksPage.linkedinLink);
         });
+        it("verify btn link", () => {
+            //test navigation
+            LinksPage.verifyLink(LinksPage.linkedinLink, 'https://www.linkedin.com/in/valentyn-protsyuk/')
+          });
       });
 
 
