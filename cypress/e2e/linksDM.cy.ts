@@ -86,6 +86,9 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
             // on hover text should be violet
             LinksPage.hoverViolet(LinksPage.emailLink);
         });
+        it("verify btn link", () => {
+            LinksPage.verifyLink(LinksPage.emailLink, 'mailto:valentyn.protsyuk@yahoo.com');
+        });
       });
 
 
