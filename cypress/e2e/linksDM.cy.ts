@@ -133,5 +133,9 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         it('Verify btn initial color', () => {
             cy.get(LinksPage.resumeLink).should('have.css', 'color', 'rgba(225, 29, 79, 0.7)');
         });
+        
+        it('Verify btn text underlined', () => {
+            cy.get(LinksPage.resumeLink).should('have.css', 'text-decoration').and('include','underline');
+        });
     });
 });
