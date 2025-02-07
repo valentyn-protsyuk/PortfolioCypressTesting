@@ -82,6 +82,10 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         it('Verify btn text underlined', () => {
             cy.get(LinksPage.emailLink).should('have.css', 'text-decoration').and('include','underline');
         });
+        it("btn color change on hover", () => {
+            // on hover text should be violet
+            LinksPage.hoverViolet(LinksPage.emailLink);
+        });
       });
 
 
