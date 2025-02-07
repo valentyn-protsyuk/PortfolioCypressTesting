@@ -34,7 +34,7 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         });
     });
 
-    describe.only('MY LINKS CONTACT SUBTITLE TESTING', () => {
+    describe('MY LINKS CONTACT SUBTITLE TESTING', () => {
         it('Verify subtitle text', () => {
             cy.get(LinksPage.contactSubtitle).should('have.text', 'Ways to contact me');
         });
@@ -45,6 +45,24 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
 
         it('Verify subtitle text capitalized', () => {
             cy.get(LinksPage.contactSubtitle).should('have.css', 'text-transform', 'capitalize');
+        });
+    });
+
+
+
+
+
+    describe.only('MY LINKS OTHER SUBTITLE TESTING', () => {
+        it('Verify subtitle text', () => {
+            cy.get(LinksPage.otherSubtitle).should('have.text', 'Other');
+        });
+
+        it('Verify subtitle text color', () => {
+            cy.get(LinksPage.otherSubtitle).should('have.css', 'color', 'rgb(148, 163, 184)');
+        });
+
+        it('Verify subtitle text capitalized', () => {
+            cy.get(LinksPage.otherSubtitle).should('have.css', 'text-transform', 'capitalize');
         });
     });
 });
