@@ -75,6 +75,10 @@ describe('LINKS SECTION TESTING in DARK MODE', () => {
         it('Verify btn text', () => {
             cy.get(LinksPage.emailLink).should('have.text', 'Send me an email');
         });
+        
+        it('Verify btn initial color', () => {
+            cy.get(LinksPage.emailLink).should('have.css', 'color', 'rgba(225, 29, 79, 0.7)');
+        });
       });
 
 
