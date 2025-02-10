@@ -7,7 +7,7 @@ class Skills {
     hsContainer: string = 'div.skills__info-container';
     hsListContainers: string = 'div.skills__info-container div';
     hsLabels: string = 'h3.skills__label';
-    hsLists: string = 'ul.skills__hs-ul';
+    hsListItems: string = 'ul .skills__hs-li';
 }
 
 export const SkillsPage = new Skills();

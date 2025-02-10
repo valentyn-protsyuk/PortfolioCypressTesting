@@ -63,7 +63,7 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
         });
     });
     
-    describe.only("HARD SKILLS LISTS CONTAINER Testing", () => {
+    describe("HARD SKILLS LISTS CONTAINER Testing", () => {
         it('Verify container min width', () => {
             cy.get(SkillsPage.hsListContainers).each(($el) => {
                 cy.wrap($el).should('have.css', 'min-width', '250px');
@@ -96,5 +96,26 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
             });
         });
   });
+
+  describe.only('HARD SKILLS LIST ITEMS TESTING', () => {
+    it('Verify text color for all items', () => {
+        cy.get(SkillsPage.hsListItems).each(($el) => {
+            cy.wrap($el).should('have.css', 'color', 'rgb(71, 85, 105)');
+        });
+    });
+
+    it('Verify all items have fire emoji', () => {
+        cy.get(SkillsPage.hsListItems).each(($el) => {
+            cy.wrap($el).should('have.css', 'list-style-type', '"🔥"');
+        });
+    });
+
+    it('Verify all items capitalized', () => {
+        cy.get(SkillsPage.hsListItems).each(($el) => {
+            cy.wrap($el).should('have.css', 'text-transform', 'capitalize');
+        });
+    });
+});
+
 
 });
