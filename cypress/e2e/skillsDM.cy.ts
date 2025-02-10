@@ -41,4 +41,15 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
       );
     });
   });
+
+  describe('hard skills SUBTITLE TESTING', () => {
+          it('Verify subtitle text', () => {
+              cy.get(SkillsPage.subTitles).eq(0).should('have.text', 'Hard Skills');
+          });
+  
+          it('Verify subtitle text color', () => {
+              cy.get(SkillsPage.subTitles).eq(0).should('have.css', 'color', 'rgb(148, 163, 184)');
+          });
+    });
+
 });
