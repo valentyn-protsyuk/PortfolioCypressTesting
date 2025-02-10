@@ -117,9 +117,17 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
     });
 });
 
+describe.only('SOFT SKILLS SUBTITLE TESTING', () => {
+    it('Verify subtitle text', () => {
+        cy.get(SkillsPage.subTitles).eq(1).should('have.text', 'Soft Skills');
+      });
+      
+      it('Verify subtitle text color', () => {
+          cy.get(SkillsPage.subTitles).eq(1).should('have.css', 'color', 'rgb(148, 163, 184)');
+      });
+  });
 
-
-    describe.only("SOFT SKILLS CONTAINER Testing", () => {
+    describe("SOFT SKILLS CONTAINER Testing", () => {
         it("Verify soft skills container has horizontal layout", () => {
             cy.get(SkillsPage.ssContainer).should("have.css", "display", "flex");
             cy.get(SkillsPage.ssContainer).should("not.have.css","flex-direction","column");
