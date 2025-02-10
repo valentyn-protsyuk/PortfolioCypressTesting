@@ -42,6 +42,17 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
     });
   });
 
+  describe.only("HARD SKILLS CONTAINER Testing", () => {
+    it("Verify hard skills container has horizontal layout", () => {
+      cy.get(SkillsPage.hsContainer).should("have.css", "display", "flex");
+      cy.get(SkillsPage.hsContainer).should("not.have.css","flex-direction","column");
+    });
+
+    it("Verify hard skills container is dynamic", () => {
+        cy.get(SkillsPage.hsContainer).should("have.css", "flex-wrap", "wrap");
+      });
+    
+  });
 
   describe('HARD SKILLS SUBTITLE TESTING', () => {
           it('Verify subtitle text', () => {
