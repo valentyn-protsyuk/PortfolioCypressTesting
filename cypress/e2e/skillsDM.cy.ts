@@ -97,7 +97,7 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
         });
   });
 
-  describe.only('HARD SKILLS LIST ITEMS TESTING', () => {
+  describe('HARD SKILLS LIST ITEMS TESTING', () => {
     it('Verify text color for all items', () => {
         cy.get(SkillsPage.hsListItems).each(($el) => {
             cy.wrap($el).should('have.css', 'color', 'rgb(71, 85, 105)');
@@ -118,4 +118,15 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
 });
 
 
+
+    describe.only("SOFT SKILLS CONTAINER Testing", () => {
+        it("Verify soft skills container has horizontal layout", () => {
+            cy.get(SkillsPage.ssContainer).should("have.css", "display", "flex");
+            cy.get(SkillsPage.ssContainer).should("not.have.css","flex-direction","column");
+        });
+
+        it("Verify soft skills container is not dynamic", () => {
+            cy.get(SkillsPage.ssContainer).should("not.have.css", "flex-wrap", "wrap");
+        });
+    });
 });

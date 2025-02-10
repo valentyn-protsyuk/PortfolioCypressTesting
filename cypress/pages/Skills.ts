@@ -8,6 +8,9 @@ class Skills {
     hsListContainers: string = 'div.skills__info-container div';
     hsLabels: string = 'h3.skills__label';
     hsListItems: string = 'ul .skills__hs-li';
+
+    ssContainer: string = 'div.skills__two-ul';
+    ssListItems: string = 'ul .skills__li';
 }
 
 export const SkillsPage = new Skills();
