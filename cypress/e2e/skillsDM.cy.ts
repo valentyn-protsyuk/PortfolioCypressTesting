@@ -117,7 +117,7 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
     });
 });
 
-describe.only('SOFT SKILLS SUBTITLE TESTING', () => {
+describe('SOFT SKILLS SUBTITLE TESTING', () => {
     it('Verify subtitle text', () => {
         cy.get(SkillsPage.subTitles).eq(1).should('have.text', 'Soft Skills');
       });
@@ -135,6 +135,26 @@ describe.only('SOFT SKILLS SUBTITLE TESTING', () => {
 
         it("Verify soft skills container is not dynamic", () => {
             cy.get(SkillsPage.ssContainer).should("not.have.css", "flex-wrap", "wrap");
+        });
+    });
+
+    describe('SOFT SKILLS LIST ITEMS TESTING', () => {
+        it('Verify text color for all items', () => {
+            cy.get(SkillsPage.ssListItems).each(($el) => {
+                cy.wrap($el).should('have.css', 'color', 'rgb(71, 85, 105)');
+            });
+        });
+    
+        it('Verify all items have fire emoji', () => {
+            cy.get(SkillsPage.ssListItems).each(($el) => {
+                cy.wrap($el).should('have.css', 'list-style-type', '"⭐️"');
+            });
+        });
+    
+        it('Verify all items capitalized', () => {
+            cy.get(SkillsPage.ssListItems).each(($el) => {
+                cy.wrap($el).should('have.css', 'text-transform', 'capitalize');
+            });
         });
     });
 });
