@@ -5,6 +5,7 @@ class Skills {
     mainTitle: string = '.skills .skills__title';
     subTitles: string = 'h3.skills__subtitle';
     hsContainer: string = 'div.skills__info-container';
+    hsListContainers: string = 'div.skills__info-container div';
     hsLabels: string = 'h3.skills__label';
     hsLists: string = 'ul.skills__hs-ul';
 }

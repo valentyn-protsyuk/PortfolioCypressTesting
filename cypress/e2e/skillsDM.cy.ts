@@ -42,7 +42,7 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
     });
   });
 
-  describe.only("HARD SKILLS CONTAINER Testing", () => {
+  describe("HARD SKILLS CONTAINER Testing", () => {
     it("Verify hard skills container has horizontal layout", () => {
       cy.get(SkillsPage.hsContainer).should("have.css", "display", "flex");
       cy.get(SkillsPage.hsContainer).should("not.have.css","flex-direction","column");
@@ -51,17 +51,30 @@ describe("SKILLS SECTION TESTING in DARK MODE", () => {
     it("Verify hard skills container is dynamic", () => {
         cy.get(SkillsPage.hsContainer).should("have.css", "flex-wrap", "wrap");
       });
-    
   });
 
   describe('HARD SKILLS SUBTITLE TESTING', () => {
-          it('Verify subtitle text', () => {
-              cy.get(SkillsPage.subTitles).eq(0).should('have.text', 'Hard Skills');
-          });
-  
-          it('Verify subtitle text color', () => {
-              cy.get(SkillsPage.subTitles).eq(0).should('have.css', 'color', 'rgb(148, 163, 184)');
-          });
+      it('Verify subtitle text', () => {
+          cy.get(SkillsPage.subTitles).eq(0).should('have.text', 'Hard Skills');
+        });
+        
+        it('Verify subtitle text color', () => {
+            cy.get(SkillsPage.subTitles).eq(0).should('have.css', 'color', 'rgb(148, 163, 184)');
+        });
+    });
+    
+    describe.only("HARD SKILLS LISTS CONTAINER Testing", () => {
+        it('Verify container min width', () => {
+            cy.get(SkillsPage.hsListContainers).each(($el) => {
+                cy.wrap($el).should('have.css', 'min-width', '250px');
+            });
+        });
+        
+        it('Verify each containers share space equally', () => {
+            cy.get(SkillsPage.hsListContainers).each(($el) => {
+                cy.wrap($el).should('have.css', 'flex', '1 1 0%');
+            });
+        });
     });
 
     describe('HARD SKILLS LABELS TESTING', () => {
