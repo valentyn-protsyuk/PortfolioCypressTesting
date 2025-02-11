@@ -28,4 +28,16 @@ describe("PROJECT SECTION TESTING in DARK MODE", () => {
         cy.get(ProjectsPage.sectionTitle).should('have.css', 'color', 'rgb(241, 245, 249)');
     });
 });
+
+      describe.only("PORTFOLIO PROJECT SUBTITLE TESTING", () => {
+        it("Verify subtitle text", () => {
+          cy.get(ProjectsPage.projectTitles).eq(0).should("have.text", "Portfolio Website Testing");
+        });
+    
+        it("Verify subtitle text color", () => {
+          cy.get(ProjectsPage.projectTitles)
+            .eq(0)
+            .should("have.css", "color", "rgb(148, 163, 184)");
+        });
+      });
 });
