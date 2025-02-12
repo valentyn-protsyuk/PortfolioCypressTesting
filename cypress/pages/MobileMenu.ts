@@ -1,14 +1,15 @@
 import "cypress-real-events/support";
 
-class Header {
-    headerContainer:string = 'header.header';
-    headerNavList:string = 'ul.header__menu';
-    headerProfile:string = '.header a[href*="profile"]';
-    headerLinks:string = 'header a[href*="links"]';
-    headerSkills:string = 'header a[href*="skills"]';
-    headerProjects:string = 'header a[href*="projects"]';
-    headerLine:string = 'header .header__line';
-    headerSun:string = 'header .header__sun';
+class MobileMenu {
+    hamburgerMenu:string = 'button.header__bars';
+    mobileMenuContainer:string = 'div.mobile-nav';
+    mobileMenuNavList:string = '.mobile-nav ul';
+    mobileMenuProfile:string = '.mobile-nav a[href*="profile"]';
+    mobileMenuLinks:string = '.mobile-nav a[href*="links"]';
+    mobileMenuSkills:string = '.mobile-nav a[href*="skills"]';
+    mobileMenuProjects:string = '.mobile-nav a[href*="projects"]';
+    mobileMenuLine:string = '.mobile-nav .mobile-nav__link-line';
+    mobileMenuSun:string = '.mobile-nav .mobile-nav__sun';
 
     hoverViolet(selector:string){
         // Trigger hover on the link
@@ -22,9 +23,6 @@ class Header {
     }
 
     inViewport(btnSelector:string, topElSelector: string){
-        //scroll down
-        cy.scrollTo('bottom');
-        cy.wait(500);
         //click navigation btn
         cy.get(btnSelector).click();
         //Top element should be in current viewport
@@ -33,4 +31,4 @@ class Header {
     }
 }
 
-export const HeaderPage = new Header();
+export const MobileMenuPage = new MobileMenu();
