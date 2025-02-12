@@ -1,6 +1,6 @@
 import { HeaderPage } from "../../pages/Header";
 
-describe("HEADER TESTING IN DARK MODE", () => {
+describe("HEADER TESTING IN LIGHT MODE", () => {
   beforeEach(() => {
     cy.visit("/");
     cy.reload();
