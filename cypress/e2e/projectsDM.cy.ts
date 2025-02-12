@@ -84,4 +84,17 @@ describe("GENERAL STYLES TESTING", () => {
           });
       });
       
+      describe.only("PORTFOLIO PROJECT TECH USED SECTION TESTING", () => {
+        it("Verify Section title text", () => {
+          cy.get(ProjectsPage.portfolioTechLabel).should("have.text", "Tech Used");
+        });
+
+        it("Verify Item text", () => {
+            cy.get(ProjectsPage.portfolioTechItems).eq(0).should("have.text", "JS");
+            cy.get(ProjectsPage.portfolioTechItems).eq(1).should("have.text", "CSS");
+            cy.get(ProjectsPage.portfolioTechItems).eq(2).should("have.text", "HTML");
+            cy.get(ProjectsPage.portfolioTechItems).eq(3).should("have.text", "TypeScript");
+            cy.get(ProjectsPage.portfolioTechItems).eq(4).should("have.text", "Cypress");
+        });
+      });
 });
