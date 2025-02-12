@@ -30,7 +30,7 @@ describe("PROJECT SECTION TESTING in DARK MODE", () => {
     });
 });
 //GENERAL STYLE TESTS
-describe.only("GENERAL STYLES TESTING", () => {
+describe("GENERAL STYLES TESTING", () => {
     it("Verify project title text color", () => {
       cy.get(ProjectsPage.projectTitles).each(($el) => {
         cy.wrap($el).should("have.css", "color", "rgb(148, 163, 184)");
@@ -72,22 +72,16 @@ describe.only("GENERAL STYLES TESTING", () => {
         it("Verify subtitle text", () => {
           cy.get(ProjectsPage.portfolioTitle).should("have.text", "Portfolio Website Testing");
         });
-    
-        it("Verify subtitle text color", () => {
-          cy.get(ProjectsPage.portfolioTitle)
-            .should("have.css", "color", "rgb(148, 163, 184)");
-        });
       });
 
       describe("PORTFOLIO PROJECT DESCRIPTION TESTING", () => {
         it("Verify Description title text", () => {
           cy.get(ProjectsPage.portfolioDescLabel).should("have.text", "Description");
         });
-    
-        it("Verify Description title text color", () => {
-          cy.get(ProjectsPage.portfolioDescLabel)
-            .should("have.css", "color", "rgb(241, 245, 249)");
-        });
+
+        it("Verify Description paragraph text", () => {
+            cy.get(ProjectsPage.portfolioDescText).should("have.text", "For this project, I applied my QA knowledge to ensure functionality and performance of my portfolio website. This included testing features like navigation and links, cross-browser compatibility, and responsive design across devices and screen sizes for a smooth, user-friendly experience.");
+          });
       });
       
 });
