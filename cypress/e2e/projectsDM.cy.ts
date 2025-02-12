@@ -84,7 +84,7 @@ describe("GENERAL STYLES TESTING", () => {
           });
       });
       
-      describe.only("PORTFOLIO PROJECT TECH USED SECTION TESTING", () => {
+      describe("PORTFOLIO PROJECT TECH USED SECTION TESTING", () => {
         it("Verify Section title text", () => {
           cy.get(ProjectsPage.portfolioTechLabel).should("have.text", "Tech Used");
         });
@@ -95,6 +95,22 @@ describe("GENERAL STYLES TESTING", () => {
             cy.get(ProjectsPage.portfolioTechItems).eq(2).should("have.text", "HTML");
             cy.get(ProjectsPage.portfolioTechItems).eq(3).should("have.text", "TypeScript");
             cy.get(ProjectsPage.portfolioTechItems).eq(4).should("have.text", "Cypress");
+        });
+      });
+
+      describe.only("PORTFOLIO PROJECT CONTENT LINKS SECTION TESTING", () => {
+        it("Verify Section title text", () => {
+          cy.get(ProjectsPage.portfolioContentLabel).should("have.text", "Table of Contents");
+        });
+
+        it("Verify Repository link text", () => {
+            cy.get(ProjectsPage.portfolioRepoLink).should("have.text", "Portfolio Repository");
+        });
+        it("Verify Cypress testing Repository link text", () => {
+            cy.get(ProjectsPage.portfolioAutomationLink).should("have.text", "Cypress Testing Repository");
+        });
+        it("Verify Manual testing link text", () => {
+            cy.get(ProjectsPage.portfolioManualLink).should("have.text", "Manual Testing Docs");
         });
       });
 });
