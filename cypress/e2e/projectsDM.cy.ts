@@ -29,7 +29,7 @@ describe("PROJECT SECTION TESTING in DARK MODE", () => {
     });
 });
 
-      describe.only("PORTFOLIO PROJECT SUBTITLE TESTING", () => {
+      describe("PORTFOLIO PROJECT SUBTITLE TESTING", () => {
         it("Verify subtitle text", () => {
           cy.get(ProjectsPage.projectTitles).eq(0).should("have.text", "Portfolio Website Testing");
         });
@@ -40,4 +40,17 @@ describe("PROJECT SECTION TESTING in DARK MODE", () => {
             .should("have.css", "color", "rgb(148, 163, 184)");
         });
       });
+
+      describe("PORTFOLIO PROJECT DESCRIPTION TESTING", () => {
+        it("Verify Description title text", () => {
+          cy.get(ProjectsPage.projectTitles).eq(0).should("have.text", "Description");
+        });
+    
+        it("Verify Description title text color", () => {
+          cy.get(ProjectsPage.projectTitles)
+            .eq(0)
+            .should("have.css", "color", "rgb(148, 163, 184)");
+        });
+      });
+      
 });
