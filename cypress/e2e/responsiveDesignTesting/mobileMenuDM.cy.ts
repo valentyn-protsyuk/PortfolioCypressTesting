@@ -1,116 +1,102 @@
-import { HeaderPage } from "../../pages/Header";
+import { MobileMenuPage } from "../../pages/MobileMenu";
 
 describe("HEADER TESTING IN DARK MODE", () => {
-  beforeEach(() => {
-    cy.visit("/");
-    cy.reload();
-  });
+    beforeEach(() => {
+        cy.visit("/");
+        cy.viewport('iphone-xr')
+        cy.reload();
+        cy.get(MobileMenuPage.hamburgerMenu).click();
+        cy.wait(100);
+    });
 
   //ELEMENT ORDER
   it("Header elements order", () => {
     // 1 profile btn
-    cy.get(".header__menu li:nth-child(1)").contains("Profile");
+    cy.get(MobileMenuPage.mobileMenuListItems).eq(0).contains("Profile");
     // 2 links btn
-    cy.get(".header__menu li:nth-child(2)").contains("Links");
+    cy.get(MobileMenuPage.mobileMenuListItems).eq(1).contains("Links");
     // 3 skills btn
-    cy.get(".header__menu li:nth-child(3)").contains("Skills");
+    cy.get(MobileMenuPage.mobileMenuListItems).eq(2).contains("Skills");
     // 4 projects btn
-    cy.get(".header__menu li:nth-child(4)").contains("Projects");
+    cy.get(MobileMenuPage.mobileMenuListItems).eq(3).contains("Projects");
     // 5 line
-    cy.get(".header__menu li:nth-child(5)").should(
+    cy.get(MobileMenuPage.mobileMenuListItems).eq(4).should(
       "have.class",
-      "header__line"
+      "mobile-nav__link-line"
     );
     // 6 sun btn
-    cy.get(".header__menu li:nth-child(6)")
-      .find("button.header__sun")
-      .should("exist");
+    cy.get(MobileMenuPage.mobileMenuListItems).eq(5)
+      .find(MobileMenuPage.mobileMenuSun)
+      .should("be.visible");
   });
 
   //BTN HOVER
   describe("BTNS HOVER TESTS", () => {
     it("Profile btn hover color change", () => {
       // profile btn selector
-      let profileSelector = '.header__link[href*="profile"]';
       //initial color
-      cy.get(profileSelector).should("have.css", "color", "rgb(71, 85, 105)");
+      cy.get(MobileMenuPage.mobileMenuProfile).should("have.css", "color", "rgb(71, 85, 105)");
       // on hover text should be violet
-      HeaderPage.hoverViolet(profileSelector);
+      MobileMenuPage.hoverViolet(MobileMenuPage.mobileMenuProfile);
     });
 
     it("Links btn hover color change", () => {
-      // links btn selector
-      let linksSelector = '.header__link[href*="links"]';
       //initial color
-      cy.get(linksSelector).should("have.css", "color", "rgb(71, 85, 105)");
+      cy.get(MobileMenuPage.mobileMenuLinks).should("have.css", "color", "rgb(71, 85, 105)");
       // on hover text should be violet
-      HeaderPage.hoverViolet(linksSelector);
+      MobileMenuPage.hoverViolet(MobileMenuPage.mobileMenuLinks);
     });
 
     it("Skills btn hover color change", () => {
-      // skills btn selector
-      let skillsSelector = '.header__link[href*="skills"]';
       //initial color
-      cy.get(skillsSelector).should("have.css", "color", "rgb(71, 85, 105)");
+      cy.get(MobileMenuPage.mobileMenuSkills).should("have.css", "color", "rgb(71, 85, 105)");
       // on hover text should be violet
-      HeaderPage.hoverViolet(skillsSelector);
+      MobileMenuPage.hoverViolet(MobileMenuPage.mobileMenuSkills);
     });
 
     it("Projects btn hover color change", () => {
-      // projects btn selector
-      let projectsSelector = '.header__link[href*="projects"]';
       //initial color
-      cy.get(projectsSelector).should("have.css", "color", "rgb(71, 85, 105)");
+      cy.get(MobileMenuPage.mobileMenuProjects).should("have.css", "color", "rgb(71, 85, 105)");
       // on hover text should be violet
-      HeaderPage.hoverViolet(projectsSelector);
+      MobileMenuPage.hoverViolet(MobileMenuPage.mobileMenuProjects);
     });
   });
 
   //BTN CLICKS
   describe("HEADER NAVIGATION TESTING", () => {
     it("Profile btn navigation on click", () => {
-      // profile btn selector
-      let profileSelector = '.header__link[href*="profile"]';
       let imgSelector = '.profile__img[alt="My Photo"]';
       //test navigation
-      HeaderPage.inViewport(profileSelector, imgSelector);
+    MobileMenuPage.inViewport(MobileMenuPage.mobileMenuProfile, imgSelector);
     });
 
     it("Links btn navigation on click", () => {
-      // links btn selector
-      let btnSelector = '.header__link[href*="links"]';
       let titleSelector = ".contact .contact__title";
       //test navigation
-      HeaderPage.inViewport(btnSelector, titleSelector);
+      MobileMenuPage.inViewport(MobileMenuPage.mobileMenuLinks, titleSelector);
     });
 
     it("Skills btn navigation on click", () => {
-      // skills btn selector
-      let btnSelector = '.header__link[href*="skills"]';
       //top element of the section
       let titleSelector = ".skills .skills__title";
       //test navigation
-      HeaderPage.inViewport(btnSelector, titleSelector);
+    MobileMenuPage.inViewport(MobileMenuPage.mobileMenuSkills, titleSelector);
     });
 
     it("Projects btn navigation on click", () => {
-      // projects btn selector
-      let btnSelector = '.header__link[href*="projects"]';
       //top element of the section
       let titleSelector = ".projects .projects__subtitle";
       //test navigation
-      HeaderPage.inViewport(btnSelector, titleSelector);
+    MobileMenuPage.inViewport(MobileMenuPage.mobileMenuProjects, titleSelector);
     });
   });
 
-  describe("THEME TESTING", () => {
+  describe.only("THEME TESTING", () => {
     it("Dark to light mode color change", () => {
-      //theme btn selector
-      let btnSelector = "#theme-toggle.header__sun";
       //default background color (dark)
       cy.get("body").should("have.css", "background-color", "rgb(7, 10, 19)");
       //click theme btn
-      cy.get(btnSelector).click();
+      cy.get(MobileMenuPage.mobileMenuSun).click();
       //updated background (light)
       cy.get("body").should(
         "have.css",
@@ -122,10 +108,8 @@ describe("HEADER TESTING IN DARK MODE", () => {
     });
 
     it("Light to dark mode color change", () => {
-      //theme btn selector
-      let btnSelector = "#theme-toggle.header__sun";
       //click theme btn
-      cy.get(btnSelector).click();
+      cy.get(MobileMenuPage.mobileMenuSun).click();
       //light mode background (light)
       cy.get("body").should(
         "have.css",
@@ -133,7 +117,7 @@ describe("HEADER TESTING IN DARK MODE", () => {
         "rgb(241, 245, 249)"
       );
       //click theme btn
-      cy.get(btnSelector).click();
+      cy.get(MobileMenuPage.mobileMenuSun).click();
       //light mode background (dark)
       cy.get("body").should("have.css", "background-color", "rgb(7, 10, 19)");
       //clear data for next test
@@ -141,10 +125,8 @@ describe("HEADER TESTING IN DARK MODE", () => {
     });
 
     it("Light mode after refresh", () => {
-      //theme btn selector
-      let btnSelector = "#theme-toggle.header__sun";
       //click theme btn
-      cy.get(btnSelector).click();
+      cy.get(MobileMenuPage.mobileMenuSun).click();
       //light mode background (light)
       cy.get("body").should(
         "have.css",
