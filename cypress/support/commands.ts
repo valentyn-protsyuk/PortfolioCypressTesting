@@ -28,27 +28,38 @@
 declare global {
   namespace Cypress {
     interface Chainable {
-      login(email: string, password: string): Chainable<void>
+      login(email: string, password: string): Chainable<void>;
     }
   }
 }
 
 Cypress.Commands.add("isInViewport", (selector) => {
-    cy.window({ log: false }).then((win) => {
-      // get the current viewport of the application
-      const { innerHeight, innerWidth } = win
-      cy.log(JSON.stringify({ innerHeight, innerWidth }))
-  
-      cy.get(selector).should(($el) => {
-          const rect = $el[0].getBoundingClientRect()
+  cy.window({ log: false }).then((win) => {
+    // get the current viewport of the application
+    const { innerHeight, innerWidth } = win;
+    cy.log(JSON.stringify({ innerHeight, innerWidth }));
 
-          if (rect.bottom > 0 && rect.top < innerHeight) {
-            // the element is outside the viewport vertically
-            return
-          }
-          throw new Error(`Element: ${selector} with top coordinate: ${rect.top} is not in current viewport`)
-      })
-    })
-  
-    cy.log(`${selector} is visible in viewport`)
-  })
+    cy.get(selector).should(($el) => {
+      const rect = $el[0].getBoundingClientRect();
+
+      if (rect.bottom > 0 && rect.top < innerHeight) {
+        // the element is outside the viewport vertically
+        return;
+      }
+      throw new Error(
+        `Element: ${selector} with top coordinate: ${rect.top} is not in current viewport`
+      );
+    });
+  });
+
+  cy.log(`${selector} is visible in viewport`);
+});
+
+Cypress.Commands.add('remToPx', (rem) => {
+  cy.get('html').should('have.css', 'font-size').then((fontSize) => {
+      const rootFontSize = parseFloat(fontSize); //get root fontsize
+      const px = rootFontSize * rem; //convert rem to px
+      return px;
+  });
+});
+

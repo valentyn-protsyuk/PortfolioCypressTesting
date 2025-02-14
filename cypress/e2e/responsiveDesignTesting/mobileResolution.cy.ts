@@ -11,5 +11,12 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
             cy.reload();
         });
 
-        
+    describe('TESTING PROFILE WITH MOBILE RESOLUTION', () => {
+        it('Verify profile gap', () => {
+            const rem = 1; //gap in rem unit
+            cy.remToPx(rem).then(pxGap => {
+                cy.get(ProfilePage.profileContainer).should('have.css', 'gap', `${pxGap}px`); 
+            })
+        });
+    });
 });
