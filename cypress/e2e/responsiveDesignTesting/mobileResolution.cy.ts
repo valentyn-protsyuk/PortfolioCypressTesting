@@ -162,14 +162,18 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
     });
 
     describe('TESTING SKILLS SECTION WITH MOBILE RESOLUTION', () => {
-        it.only('Verify container gap', () => {
+        it('Verify container gap', () => {
             const rem = 1; //gap in rem unit
             cy.remToPx(rem).then(pxGap => {
                 cy.get(SkillsPage.skillsContainer).should('have.css', 'gap', `${pxGap}px`); 
             })
         });
 
-
+        it.only('Verify main title font size', () => {
+            cy.remToPx(two_xl).then(pxFontSize => {
+                cy.get(SkillsPage.mainTitle).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
+        });
 
         
     });
