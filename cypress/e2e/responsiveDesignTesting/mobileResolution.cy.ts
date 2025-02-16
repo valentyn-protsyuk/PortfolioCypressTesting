@@ -149,7 +149,7 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
             })
         });
 
-        it.only('Verify fontsize of links', () => {
+        it('Verify fontsize of links', () => {
             const rem = 1; //gap in rem unit
 
             cy.remToPx(base).then(pxFontSize => {
@@ -159,5 +159,18 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
                 cy.get(LinksPage.resumeLink).should('have.css', 'font-size', `${pxFontSize}px`);
             });
         });
+    });
+
+    describe('TESTING SKILLS SECTION WITH MOBILE RESOLUTION', () => {
+        it.only('Verify container gap', () => {
+            const rem = 1; //gap in rem unit
+            cy.remToPx(rem).then(pxGap => {
+                cy.get(SkillsPage.skillsContainer).should('have.css', 'gap', `${pxGap}px`); 
+            })
+        });
+
+
+
+        
     });
 });
