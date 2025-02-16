@@ -137,7 +137,7 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
             });
         });
 
-        it.only('Verify gap between links', () => {
+        it('Verify gap between links', () => {
             const rem = 1; //gap in rem unit
             cy.remToPx(rem).then(pxGap => {
                 cy.get(LinksPage.ulContainers)
@@ -147,6 +147,17 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
                     .eq(1)
                     .should("have.css", "gap", `${pxGap}px`);
             })
+        });
+
+        it.only('Verify fontsize of links', () => {
+            const rem = 1; //gap in rem unit
+
+            cy.remToPx(base).then(pxFontSize => {
+                cy.get(LinksPage.linkedinLink).should('have.css', 'font-size', `${pxFontSize}px`);
+                cy.get(LinksPage.emailLink).should('have.css', 'font-size', `${pxFontSize}px`);
+                cy.get(LinksPage.githubLink).should('have.css', 'font-size', `${pxFontSize}px`);
+                cy.get(LinksPage.resumeLink).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
         });
     });
 });
