@@ -169,12 +169,22 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
             })
         });
 
-        it.only('Verify main title font size', () => {
+        it('Verify main title font size', () => {
             cy.remToPx(two_xl).then(pxFontSize => {
                 cy.get(SkillsPage.mainTitle).should('have.css', 'font-size', `${pxFontSize}px`);
             });
         });
 
+        it.only('Verify subtitles font size', () => {
+            cy.remToPx(s).then(pxGap => {
+                cy.get(SkillsPage.subTitles)
+                    .eq(0)
+                    .should("have.css", "font-size", `${pxGap}px`);
+                cy.get(SkillsPage.subTitles)
+                    .eq(1)
+                    .should("have.css", "font-size", `${pxGap}px`);
+            })
+        });
         
     });
 });
