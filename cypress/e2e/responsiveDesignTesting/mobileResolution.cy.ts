@@ -97,7 +97,7 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
         //     });
         // });
 
-        it.only('Verify font size of paragraphs', () => {
+        it('Verify font size of paragraphs', () => {
             cy.remToPx(s).then(pxFontSize => {
                 cy.get(ProfilePage.aboutParagraph).should('have.css', 'font-size', `${pxFontSize}px`);
                 cy.get(ProfilePage.educationParagraph).should('have.css', 'font-size', `${pxFontSize}px`);
@@ -105,11 +105,48 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
             });
         });
 
-        it.only('Verify width of paragraphs', () => {
+        it('Verify width of paragraphs', () => {
             const width = '60ch'
             cy.get(ProfilePage.aboutParagraph).should('have.css', 'max-width', '481.32px');
             cy.get(ProfilePage.educationParagraph).should('have.css', 'max-width', '481.32px');
             cy.get(ProfilePage.coursesParagraph).should('have.css', 'max-width', '481.32px'); 
+        });
+    });
+
+    describe('TESTING CONTACT SECTION WITH MOBILE RESOLUTION', () => {
+        it('Verify contact gap', () => {
+            const rem = 1; //gap in rem unit
+            cy.remToPx(rem).then(pxGap => {
+                cy.get(LinksPage.linksContainer).should('have.css', 'gap', `${pxGap}px`); 
+            })
+        });
+
+        it('Verify main title font size', () => {
+            cy.remToPx(two_xl).then(pxFontSize => {
+                cy.get(LinksPage.mainTitle).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
+        });
+
+        it('Verify font size of subtitles', () => {
+            cy.remToPx(l).then(pxFontSize => {
+                cy.get(LinksPage.contactSubtitle).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
+
+            cy.remToPx(l).then(pxFontSize => {
+                cy.get(LinksPage.otherSubtitle).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
+        });
+
+        it.only('Verify gap between links', () => {
+            const rem = 1; //gap in rem unit
+            cy.remToPx(rem).then(pxGap => {
+                cy.get(LinksPage.ulContainers)
+                    .eq(0)
+                    .should("have.css", "gap", `${pxGap}px`);
+                cy.get(LinksPage.ulContainers)
+                    .eq(1)
+                    .should("have.css", "gap", `${pxGap}px`);
+            })
         });
     });
 });

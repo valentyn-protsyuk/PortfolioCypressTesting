@@ -4,6 +4,7 @@ class Links {
   linksContainer: string = ".contact.container";
   mainTitle: string = ".contact .contact__title";
   contactSubtitle: string = ".contact > :nth-child(2)";
+  ulContainers: string = "ul.contact__links";
   linkedinLink: string = 'a[href*="linkedin"]';
   emailLink: string = 'a[href*="yahoo"]';
   otherSubtitle: string = ".contact > :nth-child(4)";
