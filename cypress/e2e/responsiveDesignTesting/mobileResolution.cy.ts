@@ -175,7 +175,7 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
             });
         });
 
-        it.only('Verify subtitles font size', () => {
+        it('Verify subtitles font size', () => {
             cy.remToPx(s).then(pxGap => {
                 cy.get(SkillsPage.subTitles)
                     .eq(0)
@@ -186,5 +186,17 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH < 475px', () => {
             })
         });
         
+        it("Verify font size for all list items", () => {
+            cy.remToPx(s).then(pxGap => {
+                //hard skills
+                cy.get(SkillsPage.hsListItems).each(($el) => {
+                    cy.wrap($el).should("have.css", "font-size", `${pxGap}px`);
+                });
+                //soft skills
+                cy.get(SkillsPage.ssListItems).each(($el) => {
+                    cy.wrap($el).should("have.css", "font-size", `${pxGap}px`);
+                });
+            });
+        });
     });
 });
