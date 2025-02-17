@@ -148,4 +148,43 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH > 474px && < 1024px', () => {
             });
         });
     });
+
+    describe('TESTING SKILLS SECTION WITH TABLET RESOLUTION', () => {
+        it('Verify container gap', () => {
+            const rem = 1.5; //gap in rem unit
+            cy.remToPx(rem).then(pxGap => {
+                cy.get(SkillsPage.skillsContainer).should('have.css', 'gap', `${pxGap}px`); 
+            })
+        });
+
+        it('Verify main title font size', () => {
+            cy.remToPx(three_xl).then(pxFontSize => {
+                cy.get(SkillsPage.mainTitle).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
+        });
+
+        it('Verify subtitles font size', () => {
+            cy.remToPx(base).then(pxFontSize => {
+                cy.get(SkillsPage.subTitles)
+                    .eq(0)
+                    .should("have.css", "font-size", `${pxFontSize}px`);
+                cy.get(SkillsPage.subTitles)
+                    .eq(1)
+                    .should("have.css", "font-size", `${pxFontSize}px`);
+            })
+        });
+        
+        it("Verify font size for all list items", () => {
+            cy.remToPx(base).then(pxFontSize => {
+                //hard skills
+                cy.get(SkillsPage.hsListItems).each(($el) => {
+                    cy.wrap($el).should("have.css", "font-size", `${pxFontSize}px`);
+                });
+                //soft skills
+                cy.get(SkillsPage.ssListItems).each(($el) => {
+                    cy.wrap($el).should("have.css", "font-size", `${pxFontSize}px`);
+                });
+            });
+        });
+    });
 });
