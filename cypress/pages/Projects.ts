@@ -9,6 +9,7 @@ class Projects {
   projectTitles: string = "h3.projects__title";
   projectInfoContainers: string = "div.projects__info";
   projectTextContainers: string = "div.projects__text";
+  projectIframeContainers:string = "div.projects__iframe-wrapper";
   projectIframes: string = "iframe.projects__iframe";
   projectLabels: string = "h3.projects__label";
   projectDescriptions: string = "p.projects__description";
