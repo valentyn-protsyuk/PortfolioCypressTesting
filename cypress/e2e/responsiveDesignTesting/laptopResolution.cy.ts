@@ -260,7 +260,7 @@ describe("TESTING PORTFOLIO WEBSITE WITH WIDTH > 1025px && < 1280px", () => {
     });
   });
   
-  describe.only("TESTING PROJECTS SECTION WITH LAPTOP RESOLUTION", () => {
+  describe("TESTING PROJECTS SECTION WITH LAPTOP RESOLUTION", () => {
     it("Verify main title font size", () => {
       cy.remToPx(four_xl).then((pxFontSize) => {
         cy.get(ProjectsPage.sectionTitle).should(
