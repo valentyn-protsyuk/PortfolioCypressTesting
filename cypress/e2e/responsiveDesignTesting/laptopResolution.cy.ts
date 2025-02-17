@@ -212,7 +212,7 @@ describe("TESTING PORTFOLIO WEBSITE WITH WIDTH > 1025px && < 1280px", () => {
       });
     });
   });
-  
+
   describe("TESTING SKILLS SECTION WITH LAPTOP RESOLUTION", () => {
     it("Verify container gap", () => {
       const rem = 1.5; //gap in rem unit
@@ -256,6 +256,101 @@ describe("TESTING PORTFOLIO WEBSITE WITH WIDTH > 1025px && < 1280px", () => {
         cy.get(SkillsPage.ssListItems).each(($el) => {
           cy.wrap($el).should("have.css", "font-size", `${pxFontSize}px`);
         });
+      });
+    });
+  });
+  
+  describe.only("TESTING PROJECTS SECTION WITH LAPTOP RESOLUTION", () => {
+    it("Verify main title font size", () => {
+      cy.remToPx(four_xl).then((pxFontSize) => {
+        cy.get(ProjectsPage.sectionTitle).should(
+          "have.css",
+          "font-size",
+          `${pxFontSize}px`
+        );
+      });
+    });
+
+    it("Verify subtitles font size", () => {
+      cy.remToPx(two_xl).then((pxFontSize) => {
+        cy.get(ProjectsPage.portfolioTitle).should(
+          "have.css",
+          "font-size",
+          `${pxFontSize}px`
+        );
+        cy.get(ProjectsPage.rouletteTitle).should(
+          "have.css",
+          "font-size",
+          `${pxFontSize}px`
+        );
+      });
+    });
+
+    it("Verify font size for all links", () => {
+      cy.remToPx(l).then((pxFontSize) => {
+        //all links
+        cy.get(ProjectsPage.projectContentLinks).each(($el) => {
+          cy.wrap($el).should("have.css", "font-size", `${pxFontSize}px`);
+        });
+      });
+    });
+
+    it("Verify font size for all descriptions", () => {
+      cy.remToPx(l).then((pxFontSize) => {
+        //all descriptions
+        cy.get(ProjectsPage.projectDescriptions).each(($el) => {
+          cy.wrap($el).should("have.css", "font-size", `${pxFontSize}px`);
+        });
+      });
+    });
+
+    it("Verify font size for all labels", () => {
+      cy.remToPx(xl).then((pxFontSize) => {
+        //all labels
+        cy.get(ProjectsPage.projectLabels).each(($el) => {
+          cy.wrap($el).should("have.css", "font-size", `${pxFontSize}px`);
+        });
+      });
+    });
+
+    it("Verify font size for all Tech list items", () => {
+      cy.remToPx(l).then((pxFontSize) => {
+        //all labels
+        cy.get(ProjectsPage.projectTechItems).each(($el) => {
+          cy.wrap($el).should("have.css", "font-size", `${pxFontSize}px`);
+        });
+      });
+    });
+
+    it("Verify font size for all Tech list items", () => {
+      cy.remToPx(l).then((pxFontSize) => {
+        //all labels
+        cy.get(ProjectsPage.projectTechItems).each(($el) => {
+          cy.wrap($el).should("have.css", "font-size", `${pxFontSize}px`);
+        });
+      });
+    });
+
+    it("Verify project layout", () => {
+      //column layout
+      cy.get(ProjectsPage.projectInfoContainers).each(($el) => {
+        cy.wrap($el).should("have.css", "flex-direction", "column");
+      });
+      //iframe position (padding)
+      const paddingPercent = 0.5625; //56.25%
+      cy.get(ProjectsPage.projectIframeContainers).each(($el) => {
+        cy.get(ProjectsPage.projectIframeContainers)
+          .should("have.css", "width")
+          .then((width) => {
+            const pxWidth = parseFloat(width);
+            const expectedPadding = pxWidth * paddingPercent;
+            //check the padding-top
+            cy.get(ProjectsPage.projectIframeContainers).should(
+              "have.css",
+              "padding-top",
+              `${expectedPadding}px`
+            );
+          });
       });
     });
   });
