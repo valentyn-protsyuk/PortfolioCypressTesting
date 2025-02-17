@@ -29,7 +29,7 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH > 474px && < 1024px', () => {
             cy.reload();
         });
 
-    describe('TESTING PROFILE WITH MOBILE RESOLUTION', () => {
+    describe('TESTING PROFILE WITH TABLET RESOLUTION', () => {
         it('Verify profile gap', () => {
             const rem = 1.5; //gap in rem unit
             cy.remToPx(rem).then(pxGap => {
@@ -106,4 +106,46 @@ describe('TESTING PORTFOLIO WEBSITE WITH WIDTH > 474px && < 1024px', () => {
         });
     });
 
+    describe('TESTING CONTACT SECTION WITH TABLET RESOLUTION', () => {
+        it('Verify contact gap', () => {
+            const rem = 1.5; //gap in rem unit
+            cy.remToPx(rem).then(pxGap => {
+                cy.get(LinksPage.linksContainer).should('have.css', 'gap', `${pxGap}px`); 
+            })
+        });
+
+        it('Verify main title font size', () => {
+            cy.remToPx(three_xl).then(pxFontSize => {
+                cy.get(LinksPage.mainTitle).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
+        });
+
+        it('Verify font size of subtitles', () => {
+            cy.remToPx(xl).then(pxFontSize => {
+                cy.get(LinksPage.contactSubtitle).should('have.css', 'font-size', `${pxFontSize}px`);
+                cy.get(LinksPage.otherSubtitle).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
+        });
+
+        it('Verify gap between links', () => {
+            const rem = 1; //gap in rem unit
+            cy.remToPx(rem).then(pxGap => {
+                cy.get(LinksPage.ulContainers)
+                    .eq(0)
+                    .should("have.css", "gap", `${pxGap}px`);
+                cy.get(LinksPage.ulContainers)
+                    .eq(1)
+                    .should("have.css", "gap", `${pxGap}px`);
+            })
+        });
+
+        it('Verify fontsize of links', () => {
+            cy.remToPx(l).then(pxFontSize => {
+                cy.get(LinksPage.linkedinLink).should('have.css', 'font-size', `${pxFontSize}px`);
+                cy.get(LinksPage.emailLink).should('have.css', 'font-size', `${pxFontSize}px`);
+                cy.get(LinksPage.githubLink).should('have.css', 'font-size', `${pxFontSize}px`);
+                cy.get(LinksPage.resumeLink).should('have.css', 'font-size', `${pxFontSize}px`);
+            });
+        });
+    });
 });
